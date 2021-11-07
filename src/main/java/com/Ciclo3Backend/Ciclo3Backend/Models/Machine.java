@@ -42,12 +42,12 @@ public class Machine {
     
     private Category category;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machines")
-    @JsonIgnoreProperties("machines")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machine")
+    @JsonIgnoreProperties("machine")
     private List<Message> messages;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machines")
-    @JsonIgnoreProperties("machines")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machine")
+    @JsonIgnoreProperties("machine")
     private List<Reservation> reservations;
     
     public Integer getId() {
