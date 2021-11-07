@@ -30,7 +30,7 @@ public class CategoryServices {
     }
     
     public Category saveCategory(Category c){
-        if(c.getId() == null){      // SI EL ID ES NULO, LO VA AA GUARDAR
+        if(c.getId()== null){      // SI EL ID ES NULO, LO VA AA GUARDAR
             return categoryRepository.saveCategory(c);
         }else{      // EN EL CASO CONTRARIO DE QUE EL ID NO ES NULO. LLAMARA AL METODO QUE TRAE UN DATO EN ESPECIFICO
             Optional<Category> categoryEvento = categoryRepository.getOneCategory(c.getId());

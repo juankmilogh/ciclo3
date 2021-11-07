@@ -5,10 +5,16 @@
  */
 package com.Ciclo3Backend.Ciclo3Backend.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,7 +30,19 @@ public class Message {
     private Integer idMessage;
     
     private String messageText;
-    private String description;
+   
+    
+    @ManyToOne
+    @JoinColumn(name = "idMachine")
+    @JsonIgnoreProperties({"message","reservation"})
+    
+    private Machine machine;
+    
+    @ManyToOne
+    @JoinColumn(name = "idClient")
+    @JsonIgnoreProperties({"message","reservation"})
+    
+    private Client client;
 
     public Integer getIdMessage() {
         return idMessage;
@@ -41,15 +59,22 @@ public class Message {
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
-
-    public String getDescription() {
-        return description;
+    public Machine getMachine() {
+        return machine;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setMachine(Machine machine) {
+        this.machine = machine;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
     
     
-    
+      
 }

@@ -5,11 +5,18 @@
  */
 package com.Ciclo3Backend.Ciclo3Backend.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -25,7 +32,24 @@ public class Reservation {
     
     private Date startDate;
     private Date devolutionDate;
-    private String status;
+    private String status="created";
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "idMachine")
+    @JsonIgnoreProperties("reservation")
+    
+    private Machine machine;
+    
+    @ManyToOne
+    @JoinColumn(name = "idClient")
+    @JsonIgnoreProperties({"reservation","message"})
+     
+    private Client client;
+    
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
+    @JsonIgnoreProperties("reservation")
+    private Score score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -58,6 +82,36 @@ public class Reservation {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Machine getMachine() {
+        return machine;
+    }
+
+    public void setMachine(Machine machine) {
+        this.machine = machine;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
+    
+    
+    
+
+  
+    
     
     
 }
