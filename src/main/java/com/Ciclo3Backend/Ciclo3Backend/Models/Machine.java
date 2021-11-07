@@ -38,20 +38,18 @@ public class Machine {
     
     @ManyToOne
     @JoinColumn(name = "idCategory")
-    @JsonIgnoreProperties("machine")
+    @JsonIgnoreProperties("machines")
     
     private Category category;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machine")
-    @JsonIgnoreProperties("machine")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machines")
+    @JsonIgnoreProperties("machines")
     private List<Message> messages;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machine")
-    @JsonIgnoreProperties("machine")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machines")
+    @JsonIgnoreProperties("machines")
     private List<Reservation> reservations;
     
-    
-
     public Integer getId() {
         return id;
     }

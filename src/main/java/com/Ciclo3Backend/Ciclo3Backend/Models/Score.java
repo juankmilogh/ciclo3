@@ -31,9 +31,9 @@ public class Score {
     
     @OneToOne
     @JoinColumn(name = "idReservation")
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties("reservations")
     
-    private Reservation reservation;
+    private Reservation reservations;
 
     public Integer getIdScore() {
         return idScore;
@@ -59,14 +59,15 @@ public class Score {
         this.mensaje = mensaje;
     }
 
-    public Reservation getReservation() {
-        return reservation;
+    public Reservation getReservations() {
+        return reservations;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+    public void setReservations(Reservation reservations) {
+        this.reservations = reservations;
     }
-    
+
+   
     
     
     
