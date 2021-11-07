@@ -44,11 +44,11 @@ public class Machine {
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machine")
     @JsonIgnoreProperties("machine")
-    private List<Message> message;
+    private List<Message> messages;
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machine")
     @JsonIgnoreProperties("machine")
-    private List<Reservation> reservation;
+    private List<Reservation> reservations;
     
     
 
@@ -100,21 +100,23 @@ public class Machine {
         this.category = category;
     }
 
-    public List<Reservation> getReservation() {
-        return reservation;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setReservation(List<Reservation> reservation) {
-        this.reservation = reservation;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
-    public List<Message> getMessage() {
-        return message;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setMessage(List<Message> message) {
-        this.message = message;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
+
+   
     
     
 

@@ -39,7 +39,7 @@ public class Reservation {
     @JoinColumn(name = "idMachine")
     @JsonIgnoreProperties("reservation")
     
-    private Machine machine;
+    private Machine machines;
     
     @ManyToOne
     @JoinColumn(name = "idClient")
@@ -83,13 +83,15 @@ public class Reservation {
         this.status = status;
     }
 
-    public Machine getMachine() {
-        return machine;
+    public Machine getMachines() {
+        return machines;
     }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
+    public void setMachines(Machine machines) {
+        this.machines = machines;
     }
+
+
 
     public Client getClient() {
         return client;
