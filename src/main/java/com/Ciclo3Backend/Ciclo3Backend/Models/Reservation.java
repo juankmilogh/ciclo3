@@ -37,12 +37,12 @@ public class Reservation {
     
     @ManyToOne
     @JoinColumn(name = "idMachine")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"reservations"})
     private Machine machine;
     
     @ManyToOne
     @JoinColumn(name = "idClient")
-    @JsonIgnoreProperties({"reservations","messages","client"})
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
     
     @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservations")

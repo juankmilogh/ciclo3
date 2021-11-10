@@ -47,7 +47,7 @@ public class Machine {
     private List<Message> messages;
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="machine")
-    @JsonIgnoreProperties({"machine","client"})
+    @JsonIgnoreProperties({"machine","message"})
     private List<Reservation> reservations;
     
     public Integer getId() {
