@@ -32,4 +32,7 @@ public class ScoreRepository {
         return scoreCrudRepository.save(sc);
         
     }
+    public void deleteScore(Score sc){
+       scoreCrudRepository.delete(sc);
+    }
 }
